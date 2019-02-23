@@ -1,0 +1,147 @@
+/**共通部分**/
+body{
+  margin:0;
+  font-size:16px;
+  font-family:Verdana,sans-serif;
+  color:#333
+}
+.container{
+  width:820px;
+  margin:0 auto;
+  padding:60px 0;
+}
+.orange-bg{
+  background-image:url("bg.png");
+  background-size:cover;
+  color:#fff;
+}
+.section-title{
+  text-align:center;
+  font-weight:normal;
+  font-size:24px;
+  margin-bottom:60px;
+  margin-top:0;
+}
+/**::afterで要素の直後に内容を追加　ここではh1の直後**/
+.section-title::after{
+  content:attr(data-subtitle);
+  /**h1の下にしたいからblock要素にする**/
+  display:block;
+  font-size:14px;
+  color:#aaa;
+  padding-top:10px;
+}
+
+/**header**/
+header .container{
+  /*containerに基準位置を設定**/
+  position:relative;
+}
+header img{
+  /**基準(container)の下から0px,右から0pxの場所に設定**/
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+header h1{
+  font-weight:normal;
+  font-size:36px;
+  margin-bottom:8px;
+}
+header p{
+  margin-top:0;
+  margin-bottom:8px;
+}
+.btn{
+  display:inline-block;
+  background:#fff;
+  color:#f39800;
+  width:290px;
+  text-align:center;
+  border-radius:5px;
+  padding:8px;
+  /**下の線をなくす**/
+  text-decoration:none;
+  opacity:0.9;
+}
+/**ボタンにカーソルをのせると明るくなる**/
+.btn:hover{
+  opacity:1.0
+}
+/**feature**/
+.feature h1{
+  font-weight:normal;
+  font-size:18px;
+}
+.feature .desc{
+  width:360px;
+}
+/**これで奇数番目のfeatureのdesc(文)を指定,偶数の場合はeven**/
+.feature:nth-of-type(odd) .desc{
+  float:right;
+  padding-left:40px;
+}
+.feature:nth-of-type(even) .desc{
+  float:left;
+  padding-right:40px;
+}
+/**最後の子要素にはかからないように指定**/
+.feature:not(:last-child){
+  margin-bottom:60px;
+}
+/**overflowは範囲に入りきらない内容をどう処理するか指定するプロパティ,hiddenで入りきらない内容を隠れるよう指定**/
+.feature{
+  overflow:hidden;
+}
+.voices{
+  background:#f8f8f8;
+}
+.voices .flex{
+  /**flexは直下の要素が並列になる便利なスタイル**/
+  display:flex;
+  /**justyfyはフレックスアイテムの主軸方向の揃え位置を指定する。**/
+  /**space-contentはフレックスコンテナの主軸の幅に対して余白をもって等間隔に配置される**/
+  justify-content:space-between;
+}
+.voice{
+  width:250px;
+  background-color:#fff;
+  position:relative;
+  /**box-sizing プロパティとはボックスサイズ(width, height) の算出方法を
+    指定する際に使用するプロパティ**/
+  /**border-boxはpadding と border の幅を要素の幅と高さに含める.**/
+  box-sizing:border-box;
+  padding:60px 40px 25px;
+}
+.voice img{
+  /**border-radius:50%;で円になる**/
+  border-radius:50%;
+  border:10px solid #fff;
+  position:absolute;
+  /**半径50pxの円の上半分をだしたいから上方向に-50px**/
+  top:-50px;
+  /**left,rightを０とすることで横幅いっぱいに領域をとり、marginで真ん中にする**/
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+.voice h1{
+  text-align:center;
+  font-size:18px;
+  font-weight:normal;
+}
+.voices .section-title{
+  margin-bottom:95px;
+}
+/**call-to-action**/
+.call-to-action{
+  text-align:center;
+}
+.call-to-action .section-title{
+  margin-bottom:15px;
+}
+footer{
+  padding:40px 0;
+  text-align:center;
+  color:#aaa;
+}
